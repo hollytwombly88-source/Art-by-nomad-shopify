@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ shop.name }}</title>
+    <meta name="description" content="{{ page_description | escape }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    
+    <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="preconnect" href="https://fonts.shopifycdn.com">
+    
+    {{ content_for_header }}
+    
+    <!-- CSS Variables for Theme Colors -->
+    <style>
+      :root {
+        --color-bg: {{ settings.color_background | default: '#000000' }};
+        --color-text: {{ settings.color_text | default: '#e8e8e8' }};
+        --color-accent: {{ settings.color_accent | default: '#d4af8a' }};
+        --color-accent-red: {{ settings.color_accent_red | default: '#a83e3e' }};
+      }
+    </style>
+    
+    <!-- Theme Stylesheets -->
+    <link href="{{ 'theme.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ 'base.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
+  </head>
+
+  <body class="template-{{ template }}">
+    <!-- Skip to Main Content Link for Accessibility -->
+    <a href="#main" class="skip-link">Skip to content</a>
+    
+    <!-- Header Section -->
+    {% section 'header' %}
+    
+    <!-- Main Content -->
+    <main id="main" role="main">
+      {{ content_for_layout }}
+    </main>
+    
+    <!-- Footer Section -->
+    {% section 'footer' %}
+    
+    <!-- Theme JavaScript -->
+    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+  </body>
+</html>
