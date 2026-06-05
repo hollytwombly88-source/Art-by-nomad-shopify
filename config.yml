@@ -1,0 +1,5 @@
+current: Development
+development:
+  password: shppa_YOUR_PASSWORD_HERE
+  theme_id: YOUR_THEME_ID
+  store: YOUR_STORE.myshopify.com
